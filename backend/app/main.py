@@ -10,6 +10,14 @@ from app.modules.organization.api import (
     router as organization_router,
 )
 
+from app.core.exception_handlers import (
+    register_exception_handlers,
+)
+
+from app.core.middleware import (
+    RequestContextMiddleware,
+)
+
 logger = get_logger(__name__)
 
 
@@ -40,6 +48,12 @@ app = FastAPI(
 
     debug=settings.debug,
 )
+
+app.add_middleware(
+    RequestContextMiddleware,
+)
+
+register_exception_handlers(app)
 
 app.include_router(healthRouter, prefix=settings.api_prefix)
 app.include_router(organization_router, prefix=settings.api_prefix)

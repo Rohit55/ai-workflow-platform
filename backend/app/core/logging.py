@@ -4,6 +4,7 @@ import sys
 import structlog
 
 from app.core.config import settings
+from app.core.request_context import request_id_ctx
 
 
 def configure_logging() -> None:

@@ -9,3 +9,8 @@ class OrganizationAlreadyExistsException(ConflictException):
 class OrganizationNameEmptyException(NotFoundException):
     def __init__(self):
         super().__init__("Organization name cannot be empty")
+
+
+class OrganizationNameNotFoundException(NotFoundException):
+    def __init__(self):
+        super().__init__("Organization Name not Found")
