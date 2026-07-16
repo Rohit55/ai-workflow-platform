@@ -12,6 +12,7 @@ services:
 
     volumes:
       - ./backend:/app
+      - python_venv:/app/.venv
 
     env_file:
       - .env
@@ -81,3 +82,5 @@ volumes:
   redis_data:
 
   minio_data:
+
+  python_venv:
